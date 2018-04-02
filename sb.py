@@ -189,7 +189,7 @@ while True:
                                     client.sendImageWithURL(receiver, a)
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif text.lower() == 'tagall':
+                            elif text.lower() == 'all':
                                 group = client.getGroup(receiver)
                                 nama = [contact.mid for contact in group.members]
                                 nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
@@ -242,7 +242,7 @@ while True:
                                         nm5 += [nama[m]]
                                     client.mention(receiver, nm5)             
                                 client.sendText(receiver, "Members :"+str(jml))
-                            elif text.lower() == 'ceksider':
+                            elif text.lower() == 'reader':
                                 try:
                                     del cctv['point'][receiver]
                                     del cctv['sidermem'][receiver]
@@ -252,12 +252,12 @@ while True:
                                 cctv['point'][receiver] = msg.id
                                 cctv['sidermem'][receiver] = ""
                                 cctv['cyduk'][receiver]=True
-                            elif text.lower() == 'offread':
+                            elif text.lower() == 'sreader':
                                 if msg.to in cctv['point']:
                                     cctv['cyduk'][receiver]=False
                                     client.sendText(receiver, cctv['sidermem'][msg.to])
                                 else:
-                                    client.sendText(receiver, "Heh belom di Set")
+                                    client.sendText(receiver, "Heh belom di Set point nya")
                             elif text.lower() == 'mode:self':
                                 mode = 'self'
                                 client.sendText(receiver, 'Mode Public Off')
